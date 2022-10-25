@@ -33,7 +33,7 @@ body.wrong {
 .container {
     width: 800px;
     max-width: 80%;
-    background-color: azure;
+    background-color: gold;
     border-radius: 6px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
@@ -47,12 +47,12 @@ body.wrong {
 }
 
 .btn {
- --hue: var(--hue-neutral)
+ --hue: var(--hue-neutral);
  border: 1px solid hs1(var(--hue), 100%, 30%);
 background-color: hs1(var(--hue), 100%, 50%);
 border-radius: 4px;
 padding: 6px 10px;
-color: antiquewhite;
+color: green;
 outline: none;
 }
 
