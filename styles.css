@@ -1,6 +1,6 @@
 *, *::before, *::after {
  box-sizing: border-box;
- font-family: 'Courier New', Courier, monospace;
+ font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 :root {
@@ -10,7 +10,7 @@
 }
 
 body {
---hue: var(--hue-neutral);
+/* --hue: var(--hue-neutral); */
  margin: 0;
  padding: 0;
  display: flex;
@@ -18,22 +18,26 @@ body {
  align-items: center;
  width: 100vw;
  height: 100vh;
- background-color: blue;
- overflow: hidden;
+ /* background-color: hs1(var(--hue), 100%, 20%); */
+ background-color: burlywood;
 }
 
 body.correct {
-    --hue: var(--hue-correct)
+    /* --hue: var(--hue-correct) */
+    color: green;
+    outline-color: green;
 }
 
 body.wrong {
-    --hue: var(--hue-wrong)
+    /* --hue: var(--hue-wrong) */
+    outline-color: red;
+    color: red;
 }
 
 .container {
     width: 800px;
     max-width: 80%;
-    background-color: gold;
+    background-color: blanchedalmond;
     border-radius: 6px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
@@ -47,8 +51,8 @@ body.wrong {
 }
 
 .btn {
- --hue: var(--hue-neutral);
- border: 1px solid hs1(var(--hue), 100%, 30%);
+ /* --hue: var(--hue-neutral); */
+ border: 1px solid , 100%, 30%;
 background-color: hs1(var(--hue), 100%, 50%);
 border-radius: 4px;
 padding: 6px 10px;
@@ -61,11 +65,13 @@ outline: none;
 }
 
 .btn.correct {
-    --hue: var(--hue-correct);
+    /* --hue: var(--hue-correct); */
+    color: green;
 }
 
 .btn.wrong {
-    --hue: var(--hue-wrong);
+    /* --hue: var(--hue-wrong); */
+    color: red;
 }
 
 .start-btn, .next-btn {
