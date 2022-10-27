@@ -1,5 +1,5 @@
-const startButton = document.getElementById('start-btn')
-const nextButton = document.getElementById('next-btn')
+const startButt = document.getElementById('start-btn')
+const nextButt = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
@@ -8,18 +8,18 @@ const timerElement = document.getElementById('timer')
 let shuffledQuestions, currentQuestionIndex
 let timeLeft = 10;
 let timerReference
-startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () => {
+startButt.addEventListener('click', startGame)
+nextButt.addEventListener('click', () => {
     currentQuestionIndex++
-    setNextQuestion()
+    NextQuestion()
 })
 
 function startGame() {
-    startButton.classList.add('hide')
+    startButt.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
-    setNextQuestion()
+    NextQuestion()
 }
 
 function countdown() {
@@ -29,7 +29,7 @@ function countdown() {
         clearInterval(timerReference);
         // stop the timer, go to next question
         currentQuestionIndex++
-        setNextQuestion()
+        NextQuestion()
     }
 }
 
@@ -41,7 +41,7 @@ function startTimer() {
     timerReference = setInterval(countdown, 1000);
 }
 
-function setNextQuestion() {
+function NextQuestion() {
     resetState();
     startTimer();
     showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -63,7 +63,7 @@ function showQuestion(question) {
 
 function resetState() {
     clearStatusClass(document.body)
-    nextButton.classList.add('hide')
+    nextButt.classList.add('hide')
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
@@ -77,10 +77,10 @@ function selectAnswer(e) {
         setStatusClass(button, button.dataset.correct)
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove('hide')
+        nextButt.classList.remove('hide')
     } else {
-        startButton.innerText = 'Restart'
-        startButton.classList.remove('hide')
+        startButt.innerText = 'Restart'
+        startButt.classList.remove('hide')
     }
 }
 

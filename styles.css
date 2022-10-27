@@ -53,7 +53,8 @@ body.wrong {
 .btn {
  /* --hue: var(--hue-neutral); */
  border: 1px solid , 100%, 30%;
-background-color: hs1(var(--hue), 100%, 50%);
+/* background-color: hs1(var(--hue), 100%, 50%); */
+background-color: papayawhip;
 border-radius: 4px;
 padding: 6px 10px;
 color: green;
@@ -62,6 +63,8 @@ outline: none;
 
 .btn:hover {
     border-color: black;
+    background-color: rgb(226, 226, 164);
+    font-weight: bolder;
 }
 
 .btn.correct {
@@ -75,7 +78,7 @@ outline: none;
 }
 
 .start-btn, .next-btn {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     padding: 10px 20px;
 }
