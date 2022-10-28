@@ -4,10 +4,20 @@ const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const timerElement = document.getElementById("timer");
+const highScoreButton = document.getElementById("High-Scores");
+const saveScoreButton = document.getElementById("save-score");
+const nameInput = document.getElementById("name-input");
 
 let shuffledQuestions, currentQuestionIndex;
 let timeLeft = 60;
 let timerReference;
+
+var highscoreArray = localStorage.getItem("highscore");
+
+if (!highscoreArray) {
+  localStorage.setItem("highscore", JSON.stringify([]));
+}
+
 startButt.addEventListener("click", startGame);
 nextButt.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -82,6 +92,7 @@ function selectAnswer(e) {
   } else {
     startButt.innerText = "Restart";
     startButt.classList.remove("hide");
+    endGame();
   }
 
   if (timeLeft > 5) {
@@ -109,6 +120,11 @@ function setStatusClass(element, correct) {
 function clearStatusClass(element) {
   element.classList.remove("correct");
   element.classList.remove("wrong");
+}
+
+function endGame() {
+  saveScoreButton.classList.remove("hide");
+  nameInput.classList.remove("hide");
 }
 
 const questions = [
@@ -149,3 +165,20 @@ const questions = [
     ],
   },
 ];
+
+saveScoreButton.addEventListener("click", function () {
+  const currentPlayerScore = {
+    name: nameInput.value,
+    score: timeLeft,
+  };
+
+  var scores = JSON.parse(localStorage.getItem("highscore"));
+
+  scores.push(currentPlayerScore);
+
+  localStorage.setItem("highscore", JSON.stringify(scores));
+
+  saveScoreButton.classList.add("hide");
+  highScoreButton.classList.remove("hide");
+  nameInput.classList.add("hide");
+});
