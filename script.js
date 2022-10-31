@@ -7,9 +7,10 @@ const timerElement = document.getElementById("timer");
 const highScoreButton = document.getElementById("High-Scores");
 const saveScoreButton = document.getElementById("save-score");
 const nameInput = document.getElementById("name-input");
+// The list of Buttons and Elements to display when opening the quiz
 
 let shuffledQuestions, currentQuestionIndex;
-let timeLeft = 60;
+let timeLeft = 60; // The original time given in seconds for the quiz
 let timerReference;
 
 var highscoreArray = localStorage.getItem("highscore");
@@ -31,6 +32,7 @@ function startGame() {
   questionContainerElement.classList.remove("hide");
   startTimer();
   NextQuestion();
+  // This function starts the game with a random question from the index, shuffling the questions every start
 }
 
 function countdown() {
@@ -54,7 +56,7 @@ function startTimer() {
 function NextQuestion() {
   resetState();
   showQuestion(shuffledQuestions[currentQuestionIndex]);
-}
+} // Leads to the next question which is shuffled
 
 function showQuestion(question) {
   question.answers.forEach((answer) => {
@@ -101,7 +103,7 @@ function selectAnswer(e) {
     timeLeft = 1;
   }
 }
-
+// This allows us to avoid going into negative numbers when the timer hits zero
 function decrementTimeOnWrongAnswer(target) {
   if (!target.dataset.correct) {
     timeLeft -= 5;
@@ -126,6 +128,7 @@ function endGame() {
   saveScoreButton.classList.remove("hide");
   nameInput.classList.remove("hide");
 }
+// Finishes the game and allows the user to input their name and save the score
 
 const questions = [
   {
@@ -182,3 +185,4 @@ saveScoreButton.addEventListener("click", function () {
   highScoreButton.classList.remove("hide");
   nameInput.classList.add("hide");
 });
+// This function sets the highscore to the local storage system

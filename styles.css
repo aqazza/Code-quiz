@@ -66,6 +66,7 @@ body.wrong {
 .btn:hover {
   border-color: black;
   background-color: rgb(226, 226, 164);
+  /* When hovering over any button, the background -color: turns beige */
   font-weight: bolder;
 }
 
@@ -91,7 +92,7 @@ body.wrong {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-}
+} /* sets the controls position and allignment to flex and center */
 
 .hide {
   display: none;
